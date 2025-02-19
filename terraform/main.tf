@@ -29,7 +29,7 @@ resource "helm_release" "loki" {
   repository = "https://grafana.github.io/helm/charts"
   chart      = "loki-stack"
   namespace  = kubernetes_namespace.logging.metadata.0.name
-  version    = "2.4.1"
+  version    = "2.10.2"
 }
 
 resource "helm_release" "grafana" {
