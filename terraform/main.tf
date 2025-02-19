@@ -21,12 +21,22 @@ resource "helm_release" "prometheus" {
   repository = "https://prometheus-community.github.io/helm-charts"
   chart      = "kube-prometheus-stack"
   namespace  = kubernetes_namespace.monitoring.metadata.0.name
-  version    = "9.4.2"
+  version    = "56.6.1"
+
+    set {
+        name  = "prometheus.admissionWebhooks.enabled"
+        value = "false"
+    }
+
+    set {
+        name  = "prometheusOperator.createCustomResource"
+        value = "false"
+    }
 }
 
 resource "helm_release" "loki" {
   name       = "loki"
-  repository = "https://grafana.github.io/helm/charts"
+  repository = "https://grafana.github.io/helm-charts"
   chart      = "loki-stack"
   namespace  = kubernetes_namespace.logging.metadata.0.name
   version    = "2.10.2"
