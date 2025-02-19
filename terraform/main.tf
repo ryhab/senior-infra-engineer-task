@@ -26,7 +26,7 @@ resource "helm_release" "prometheus" {
 
 resource "helm_release" "loki" {
   name       = "loki"
-  repository = "https://grafana.github.io/loki/charts"
+  repository = "https://grafana.github.io/helm/charts"
   chart      = "loki-stack"
   namespace  = kubernetes_namespace.logging.metadata.0.name
   version    = "2.4.1"
