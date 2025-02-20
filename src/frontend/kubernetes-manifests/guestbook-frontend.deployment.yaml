@@ -26,4 +26,4 @@ spec:
         - name: PORT
           value: "5001"
         - name: GUESTBOOK_API_ADDR
-          value: python-guestbook-backend:8080
+          value: python-guestbook-backend:5002
