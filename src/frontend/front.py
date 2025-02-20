@@ -57,3 +57,6 @@ if __name__ == '__main__':
     # start Flask server
     # Flask's debug mode is unrelated to ptvsd debugger used by Cloud Code
     app.run(debug=False, port=os.environ.get('PORT', 5001), host='0.0.0.0')
+    
+    ## NOTE: It is recommended that the frontend be implemented using HTML, CSS, and JavaScript
+    # instead of Python for better separation of concerns and improved performance.
