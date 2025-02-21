@@ -36,4 +36,4 @@ if __name__ == '__main__':
 
     # start Flask server
     # Flask's debug mode is unrelated to ptvsd debugger used by Cloud Code
-    app.run(debug=False, port=os.environ.get('PORT'), host='0.0.0.0')
+    app.run(debug=False, port=os.environ.get('PORT', 5002), host='0.0.0.0')

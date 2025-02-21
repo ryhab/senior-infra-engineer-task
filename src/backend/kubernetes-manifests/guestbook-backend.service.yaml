@@ -11,5 +11,6 @@ spec:
     app: python-guestbook
     tier: backend
   ports:
-  - port: 8080
-    targetPort: http-server
+  - name: http
+    port: 5002
+    targetPort: 5002

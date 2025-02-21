@@ -15,3 +15,5 @@ COPY . .
 
 # Run app.py when the container launches
 ENTRYPOINT ["python", "front.py"]
+
+EXPOSE 5001

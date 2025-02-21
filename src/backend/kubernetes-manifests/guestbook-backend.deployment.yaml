@@ -6,7 +6,7 @@ metadata:
     app: python-guestbook
     tier: backend
 spec:
-  replicas: 1
+  replicas: 1 # Usually in production, we set replicas to 3 or 5 for higher availability and resilience to failures.
   selector:
     matchLabels:
       app: python-guestbook
@@ -26,12 +26,11 @@ spec:
           - until (mongo --host python-guestbook-mongodb:27017 >/dev/null) do echo "Waiting for connection for 2 sec."; sleep 2; done
       containers:
       - name: backend
-        image: python-guestbook-backend
+        image: localhost:5000/guestbook-backend
         ports:
-        - name: http-server
-          containerPort: 8080
+        - containerPort: 5002
         env:
         - name: PORT
-          value: "8080"
+          value: "5002"
         - name: GUESTBOOK_DB_ADDR
           value: "python-guestbook-mongodb:27017"
